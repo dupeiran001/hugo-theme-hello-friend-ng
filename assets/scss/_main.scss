@@ -114,6 +114,25 @@ a {
   color: inherit;
 }
 
+.post-content a {
+  display: inline-block;
+  padding: 0 4px 0;
+  color: inherit;
+  font-size: 80%;
+  border-bottom: 1px solid #5e81ac;
+  background: inherit;
+  text-decoration-line: none;
+  vertical-align: text-bottom;
+  font-style: italic;
+  transition: all 400ms;
+
+  &:hover {
+    border-radius: 5px;
+    background: #5e81ac 10%;
+    color: #d8dee9;
+  }
+}
+
 img {
   display: block;
   max-width: 100%;
