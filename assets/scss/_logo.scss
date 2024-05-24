@@ -23,7 +23,7 @@
     display: inline-block;
     width: 10px;
     height: 1rem;
-    background: #fe5186;
+    background: #bf616a;
     margin-left: 5px;
     border-radius: 1px;
     animation: cursor 1s infinite;
@@ -31,14 +31,21 @@
 
   @media (prefers-reduced-motion: reduce) {
     &__cursor {
-        animation: none;
+      animation: none;
     }
   }
-
 }
 
 @keyframes cursor {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
