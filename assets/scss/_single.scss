@@ -1,11 +1,15 @@
 .post {
   width: 100%;
-  max-width: 800px;
   text-align: left;
   padding: 20px;
   margin: 20px auto;
-  @media #{$media-size-tablet} {
-    max-width: 600px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &-page {
+    width: 800px;
+
   }
 
   &-date {
@@ -17,6 +21,7 @@
   &-title {
     font-size: 2.625rem;
     margin: 0 0 20px;
+
     @media #{$media-size-phone} {
       font-size: 2rem;
     }
@@ -47,6 +52,7 @@
     width: $max-width;
     max-width: $max-width;
     overflow: hidden;
+
     @media #{$media-size-tablet} {
       margin: 20px 0;
       width: 100%;
@@ -135,17 +141,17 @@
         background: $dark-background;
         color: $dark-color-secondary;
       }
-    
+
       @media (prefers-color-scheme: light) {
         background: $light-background;
         color: $light-color-secondary;
       }
-    
+
       [data-theme=dark] & {
         background: $dark-background;
         color: $dark-color-secondary;
       }
-    
+
       [data-theme=light] & {
         background: $light-background;
         color: $light-color-secondary;
@@ -205,7 +211,7 @@
     background: $light-background-secondary;
   }
 
-  + .button {
+  +.button {
     margin-left: 10px;
   }
 
