@@ -1,3 +1,8 @@
+<script>
+  window.UtteranceLight = {{ .Site.Params.Utterances.ThemeLight }}
+  window.UtteranceDark = {{ .Site.Params.Utterances.ThemeDark }}
+</script>
+
 {{ $main := resources.Get "js/main.js" }}
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $prism := resources.Get "js/prism.js" }}

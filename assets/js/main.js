@@ -3,7 +3,6 @@
  *
  * Supports the preferred color scheme of the operation system as well as
  * the theme choice of the user.
- *
  */
 const themeToggle = document.querySelector(".theme-toggle");
 const chosenTheme = window.localStorage && window.localStorage.getItem("theme");
@@ -12,14 +11,39 @@ const chosenThemeIsLight = chosenTheme == "light";
 
 // Detect the color scheme the operating system prefers.
 function detectOSColorTheme() {
+  let utterance = document.getElementById("utterance");
   if (chosenThemeIsDark) {
     document.documentElement.setAttribute("data-theme", "dark");
+    if (utterance) {
+      utterance.setAttribute(
+        "theme",
+        window.UtteranceDark,
+      );
+    }
   } else if (chosenThemeIsLight) {
     document.documentElement.setAttribute("data-theme", "light");
+    if (utterance) {
+      utterance.setAttribute(
+        "theme",
+        window.UtteranceLight,
+      );
+    }
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     document.documentElement.setAttribute("data-theme", "dark");
+    if (utterance) {
+      utterance.setAttribute(
+        "theme",
+        window.UtteranceDark,
+      );
+    }
   } else {
     document.documentElement.setAttribute("data-theme", "light");
+    if (utterance) {
+      utterance.setAttribute(
+        "theme",
+        window.UtteranceLight,
+      );
+    }
   }
 }
 
