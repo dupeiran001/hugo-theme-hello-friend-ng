@@ -14,10 +14,21 @@
   }
 
   .resp-sharing-button {
-    border-radius: 5px;
-    transition: 25ms ease-out;
+    border-radius: 20px;
+    transition: 100ms ease-in-out;
     padding: 0.5em 0.75em;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    [data-theme="dark"] &:hover {
+      background: #4C566A;
+    }
+
+    [data-theme="light"] &:hover {
+      background: #EBCB8B;
+    }
+
+
+
   }
 
   .resp-sharing-button__icon svg {
@@ -31,4 +42,8 @@
     margin: 0;
     vertical-align: middle;
   }
+
+
+
+
 }
