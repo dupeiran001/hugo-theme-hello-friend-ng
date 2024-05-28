@@ -40,6 +40,33 @@
     margin: 0 auto;
     width: 760px;
     max-width: 100%;
+
+
+    & a:hover {
+      text-decoration: none !important;
+    }
+
+
+    & li {
+      transition-duration: 200ms;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 5px;
+
+      [data-theme=dark] &:hover {
+        background: #4C566A;
+
+      }
+
+      [data-theme=light] &:hover {
+        background: #D8DEE9;
+
+      }
+
+
+
+
+    }
   }
 }
 
@@ -57,7 +84,7 @@
 
 .not-selectable {
   user-select: none;
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
