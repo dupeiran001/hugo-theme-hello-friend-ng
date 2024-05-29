@@ -5,45 +5,52 @@
  * the theme choice of the user.
  */
 const themeToggle = document.querySelector(".theme-toggle");
-const chosenTheme = window.localStorage && window.localStorage.getItem("theme");
-const chosenThemeIsDark = chosenTheme == "dark";
-const chosenThemeIsLight = chosenTheme == "light";
+let chosenTheme = window.localStorage && window.localStorage.getItem("theme");
+let chosenThemeIsDark = chosenTheme == "dark";
+let chosenThemeIsLight = chosenTheme == "light";
 
 // Detect the color scheme the operating system prefers.
 function detectOSColorTheme() {
-  let utterance = document.getElementById("utterance");
+  chosenTheme = window.localStorage && window.localStorage.getItem("theme");
+  chosenThemeIsDark = chosenTheme == "dark";
+  chosenThemeIsLight = chosenTheme == "light";
+
+  let utteranceTheme = {};
+
   if (chosenThemeIsDark) {
     document.documentElement.setAttribute("data-theme", "dark");
-    if (utterance) {
-      utterance.setAttribute(
-        "theme",
-        window.UtteranceDark,
-      );
-    }
+    utteranceTheme = window.UtteranceDark;
   } else if (chosenThemeIsLight) {
     document.documentElement.setAttribute("data-theme", "light");
-    if (utterance) {
-      utterance.setAttribute(
-        "theme",
-        window.UtteranceLight,
-      );
-    }
+    utteranceTheme = window.UtteranceLight;
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     document.documentElement.setAttribute("data-theme", "dark");
-    if (utterance) {
-      utterance.setAttribute(
-        "theme",
-        window.UtteranceDark,
-      );
-    }
+
+    utteranceTheme = window.UtteranceDark;
   } else {
     document.documentElement.setAttribute("data-theme", "light");
-    if (utterance) {
-      utterance.setAttribute(
-        "theme",
-        window.UtteranceLight,
-      );
-    }
+    utteranceTheme = window.UtteranceLight;
+  }
+
+  let utteranceDiv = document.querySelector(".utterances");
+  if (utteranceDiv) {
+    let new_utterance = document.createElement("script");
+    new_utterance.setAttribute("id", "utterances");
+    new_utterance.setAttribute("src", "https://utteranc.es/client.js");
+    new_utterance.setAttribute("repo", window.UtteranceRepository);
+    new_utterance.setAttribute("label", window.UtteranceLabel);
+    new_utterance.setAttribute(
+      "issue-term",
+      window.UtteranceIssueTerm,
+    );
+    new_utterance.setAttribute("theme", utteranceTheme);
+    new_utterance.setAttribute(
+      "crossorigin",
+      "anonymous",
+    );
+    new_utterance.setAttribute("async", true);
+
+    utteranceDiv.parentNode.replaceChild(new_utterance, utteranceDiv);
   }
 }
 
@@ -62,7 +69,7 @@ function switchTheme(e) {
   }
 
   detectOSColorTheme();
-  window.location.reload();
+  //window.location.reload();
 }
 
 // Event listener

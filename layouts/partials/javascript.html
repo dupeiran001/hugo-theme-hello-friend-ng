@@ -1,6 +1,9 @@
 <script>
   window.UtteranceLight = {{ .Site.Params.Utterances.ThemeLight }}
   window.UtteranceDark = {{ .Site.Params.Utterances.ThemeDark }}
+  window.UtteranceRepository = {{ .Site.Params.Utterances.repository}}
+  window.UtteranceLabel = {{ .Site.Params.Utterances.label}}
+  window.UtteranceIssueTerm = {{ .Site.Params.Utterances.issueTerm}}
 </script>
 
 {{ $main := resources.Get "js/main.js" }}
